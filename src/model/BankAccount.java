@@ -36,4 +36,12 @@ public class BankAccount {
     public void setCurrency(Currency currency) {
         this.currency = currency;
     }
+
+    public String toString() {
+        return "BankAccount{" +
+                "accountNumber=" + accNumber +
+                ", balance=" + balance +
+                ", currency=" + currency +
+                '}';
+    }
 }

@@ -11,11 +11,11 @@ public class CardAccount {
    private int cvv;
    private LocalDate expirationDate;
    private CardType cardType;
-   private int balance;
+   private double balance;
    private Currency currency;
    private CardStatus cardStatus;
 
-    public CardAccount(long cardNumber, int cvv, LocalDate expirationDate, CardType cardType, int balance,
+    public CardAccount(long cardNumber, int cvv, LocalDate expirationDate, CardType cardType, double balance,
                        Currency currency, CardStatus cardStatus) {
         this.cardNumber = cardNumber;
         this.cvv = cvv;
@@ -58,11 +58,11 @@ public class CardAccount {
         this.cardType = cardType;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
@@ -80,5 +80,11 @@ public class CardAccount {
 
     public void setCardStatus(CardStatus cardStatus) {
         this.cardStatus = cardStatus;
+    }
+
+    public String toString(){
+        return "Card account{" + "Card number = " + cardNumber + ", CVV = " + cvv + ", Date: "
+                + expirationDate + ", Card type: " + cardType + ", Balance = " + balance +
+                ", The currency of card: " + currency + ", Card status: " + cardStatus + "}";
     }
 }

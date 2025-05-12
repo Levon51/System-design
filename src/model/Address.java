@@ -54,5 +54,10 @@ public class Address {
     public void setHouse(Integer house) {
         this.house = house;
     }
+
+    public String toString(){
+        return "Address{" + "Country: " + country + ", Region: " + region + ", City: " + city + " Street: " + street +
+                ", House: " + house + "}";
+    }
 }
 

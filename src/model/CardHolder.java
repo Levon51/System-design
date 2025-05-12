@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Arrays;
+
 public class CardHolder {
     private String passportNumber;
     private BankAccount bankAccount;
@@ -54,5 +56,11 @@ public class CardHolder {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public String toString(){
+        return "{Passport number = " + passportNumber + bankAccount +
+                ", Card accounts = " + Arrays.toString(cardAccounts) + ", First name and last name: " +
+                fullName + address;
     }
 }
