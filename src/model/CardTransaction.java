@@ -33,6 +33,12 @@ public class CardTransaction {
         toCard.setBalance(toCard.getBalance() + amount);
         System.out.println("Transfer successful");
     }
+    public void block(CardAccount card){
+        if(card.getCardStatus() == CardStatus.ACTIVE){
+            card.setCardStatus(CardStatus.BLOCKED);
+            System.out.println("Card is now blocked.");
+        }
+    }
     public double getBalance(CardAccount card){
         return card.getBalance();
     }

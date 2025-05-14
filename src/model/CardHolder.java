@@ -1,15 +1,16 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CardHolder {
     private String passportNumber;
     private BankAccount bankAccount;
-    private CardAccount[] cardAccounts;
+    private ArrayList<CardAccount> cardAccounts;
     private String fullName;
     private Address address;
 
-    public CardHolder(String passportNumber, BankAccount bankAccount, CardAccount[] cardAccounts,
+    public CardHolder(String passportNumber, BankAccount bankAccount, ArrayList<CardAccount> cardAccounts,
                       String fullName, Address address) {
         this.passportNumber = passportNumber;
         this.bankAccount = bankAccount;
@@ -34,11 +35,11 @@ public class CardHolder {
         this.bankAccount = bankAccount;
     }
 
-    public CardAccount[] getCardAccounts() {
+    public ArrayList<CardAccount> getCardAccounts() {
         return cardAccounts;
     }
 
-    public void setCardAccounts(CardAccount[] cardAccounts) {
+    public void setCardAccounts(ArrayList<CardAccount> cardAccounts) {
         this.cardAccounts = cardAccounts;
     }
 
@@ -60,7 +61,7 @@ public class CardHolder {
 
     public String toString(){
         return "{Passport number = " + passportNumber + bankAccount +
-                ", Card accounts = " + Arrays.toString(cardAccounts) + ", First name and last name: " +
+                ", Card accounts = " + cardAccounts + ", First name and last name: " +
                 fullName + address;
     }
 }
