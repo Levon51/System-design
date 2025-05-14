@@ -9,7 +9,7 @@ public class CardTransaction {
         if(card.getCardStatus() == CardStatus.BLOCKED){
             throw new InsufficientFundsException("Card is blocked.");
         }else if(amount < 0){
-            throw new InsufficientFundsException("Money cannot be negative");
+            throw new InsufficientFundsException("")
         }
         card.setBalance(card.getBalance() + amount);
     }
