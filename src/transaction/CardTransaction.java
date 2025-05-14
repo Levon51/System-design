@@ -1,13 +1,15 @@
-package model;
+package transaction;
 
 import enumes.CardStatus;
 import exception.InsufficientFundsException;
+import model.CardAccount;
 
 public class CardTransaction {
     public void deposit(CardAccount card, int amount){
-        if(card == null || card.getCardStatus() == CardStatus.BLOCKED){
-            System.out.println("Card is either not found or blocked.");
-            return;
+        if(card.getCardStatus() == CardStatus.BLOCKED){
+            throw new InsufficientFundsException("Card is blocked.");
+        }else if(amount < 0){
+            throw new InsufficientFundsException("Money cannot be negative");
         }
         card.setBalance(card.getBalance() + amount);
     }

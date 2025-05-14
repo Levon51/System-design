@@ -1,11 +1,14 @@
-package model;
+package transaction;
 
 import exception.InsufficientFundsException;
+import model.BankAccount;
 
 public class BankAccountTransaction {
     public void deposit(BankAccount acc, int amount){
         if(acc == null){
             throw new InsufficientFundsException("Account is not found.");
+        }else if(amount < 0){
+            throw new InsufficientFundsException("Money cannot be negative");
         }
         acc.setBalance(acc.getBalance() + amount);
     }

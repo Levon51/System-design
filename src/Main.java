@@ -2,11 +2,11 @@ import enumes.CardStatus;
 import enumes.CardType;
 import enumes.Currency;
 import model.*;
+import transaction.BankAccountTransaction;
+import transaction.CardTransaction;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {

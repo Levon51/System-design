@@ -27,6 +27,9 @@ public class CardAccount {
     }
 
     public long getCardNumber() {
+        if(cardNumber <1000000000000000L || cardNumber > 9999999999999999L){
+            System.out.println("The number must contain sixteen numbers");
+        }
         return cardNumber;
     }
 
@@ -35,7 +38,11 @@ public class CardAccount {
     }
 
     public int getCvv() {
-        return cvv;
+
+         if(cvv < 100 || cvv > 999){
+             System.out.println("The number must be three numbers");
+        }
+         return cvv;
     }
 
     public void setCvv(int cvv) {
@@ -59,6 +66,7 @@ public class CardAccount {
     }
 
     public double getBalance() {
+
         return balance;
     }
 
