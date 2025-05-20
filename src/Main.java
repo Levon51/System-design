@@ -23,9 +23,9 @@ public class Main {
         Address address1 = new Address("Armenia", "Aragatsotn", "Ashtarak","Armenyan",44);
         CardAccount cardAccount1 = new CardAccount(4455050004450444L,111,date1,CardType.AMERICAN_EXPRESS,23_049.4,Currency.AMD,CardStatus.ACTIVE);
         BankAccount bankAccount1 = new BankAccount(1244548992110900L,49000.60,Currency.AMD);
-        ArrayList<CardAccount>cardAccounts2 = new ArrayList<>();
-        cardAccounts2.add(cardAccount1);
-        CardHolder cardHolder1 = new CardHolder("OM6180083",bankAccount1,new ArrayList<CardAccount>(),"Jora Sahakyan", address1);
+        ArrayList<CardAccount>cardAccounts4 = new ArrayList<>();
+        cardAccounts4.add(cardAccount1);
+        CardHolder cardHolder1 = new CardHolder("OM6180083",bankAccount1,cardAccounts4,"Jora Sahakyan", address1);
 
         CardTransaction transaction = new CardTransaction();
         transaction.deposit(cardAccount1,4000);

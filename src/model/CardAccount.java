@@ -27,7 +27,7 @@ public class CardAccount {
     }
 
     public long getCardNumber() {
-        if(cardNumber <1000000000000000L || cardNumber > 9999999999999999L){
+        if(cardNumber < 1000000000000000L || cardNumber > 9999999999999999L){
             System.out.println("The number must contain sixteen numbers");
         }
         return cardNumber;
