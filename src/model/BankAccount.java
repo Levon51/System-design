@@ -13,6 +13,7 @@ public class BankAccount {
         this.currency = currency;
     }
 
+
     public long getAccNumber() {
         if(accNumber <1000000000000000L || accNumber > 9999999999999999L){
             System.out.println("The number must contain sixteen numbers");
