@@ -2,8 +2,9 @@ package transaction;
 
 import exception.InsufficientFundsException;
 import model.BankAccount;
+import transaction_interface.BankTransaction;
 
-public class BankAccountTransaction {
+public class BankAccountTransaction implements BankTransaction {
     public void deposit(BankAccount acc, int amount){
         if(acc == null){
             throw new InsufficientFundsException("Account is not found.");
@@ -33,4 +34,5 @@ public class BankAccountTransaction {
     public double getBalance(BankAccount balance){
         return balance.getBalance();
     }
+
 }

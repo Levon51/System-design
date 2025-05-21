@@ -1,16 +1,19 @@
 package model;
 
+import enumes.BankAccountType;
 import enumes.Currency;
 
 public class BankAccount {
     private long accNumber;
     private double balance;
     private Currency currency;
+    private BankAccountType bankAccountType;
 
-    public BankAccount(long accNumber, double balance, Currency currency) {
+    public BankAccount(long accNumber, double balance, Currency currency, BankAccountType bankAccountType) {
         this.accNumber = accNumber;
         this.balance = balance;
         this.currency = currency;
+        this.bankAccountType = bankAccountType;
     }
 
     public long getAccNumber() {
@@ -40,11 +43,19 @@ public class BankAccount {
         this.currency = currency;
     }
 
+    public BankAccountType getBankAccountType() {
+        return bankAccountType;
+    }
+
+    public void setBankAccountType(BankAccountType bankAccountType) {
+        this.bankAccountType = bankAccountType;
+    }
+
     public String toString() {
         return "BankAccount{" +
                 "accountNumber=" + accNumber +
                 ", balance=" + balance +
-                ", currency=" + currency +
+                ", currency=" + currency + ",bank account type=" + bankAccountType +
                 '}';
     }
 }

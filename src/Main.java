@@ -1,3 +1,4 @@
+import enumes.BankAccountType;
 import enumes.CardStatus;
 import enumes.CardType;
 import enumes.Currency;
@@ -15,14 +16,14 @@ public class Main {
 
         Address address = new Address("Armenia","Gegharquniq","Sevan","Shinararner 2",18);
         CardAccount cardAccount = new CardAccount(4454300004242563L,900,date, CardType.VISA,40000,Currency.AMD, CardStatus.ACTIVE);
-        BankAccount bankAccount = new BankAccount(2984899237311117L,40020.4,Currency.AMD);
+        BankAccount bankAccount = new BankAccount(2984899237311117L,40020.4,Currency.AMD, BankAccountType.CREDIT);
         ArrayList<CardAccount> cardAccount0 = new ArrayList<>();
         cardAccount0.add(cardAccount);
         CardHolder cardHolder = new CardHolder("NG09898338 ",bankAccount,cardAccount0,"Levon Gharibyan" ,address);
 
         Address address1 = new Address("Armenia", "Aragatsotn", "Ashtarak","Armenyan",44);
         CardAccount cardAccount1 = new CardAccount(4455050004450444L,111,date1,CardType.AMERICAN_EXPRESS,23_049.4,Currency.AMD,CardStatus.ACTIVE);
-        BankAccount bankAccount1 = new BankAccount(1244548992110900L,49000.60,Currency.AMD);
+        BankAccount bankAccount1 = new BankAccount(1244548992110900L,49000.60,Currency.AMD,BankAccountType.CREDIT);
         ArrayList<CardAccount>cardAccounts2 = new ArrayList<>();
         cardAccounts2.add(cardAccount1);
         CardHolder cardHolder1 = new CardHolder("OM6180083",bankAccount1,new ArrayList<CardAccount>(),"Jora Sahakyan", address1);

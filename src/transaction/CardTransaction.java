@@ -3,13 +3,14 @@ package transaction;
 import enumes.CardStatus;
 import exception.InsufficientFundsException;
 import model.CardAccount;
+import transaction_interface.CardAccountTransaction;
 
-public class CardTransaction {
+public class CardTransaction implements CardAccountTransaction {
     public void deposit(CardAccount card, int amount){
         if(card.getCardStatus() == CardStatus.BLOCKED){
             throw new InsufficientFundsException("Card is blocked.");
         }else if(amount < 0){
-            throw new InsufficientFundsException("")
+            throw new InsufficientFundsException("");
         }
         card.setBalance(card.getBalance() + amount);
     }
