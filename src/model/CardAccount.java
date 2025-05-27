@@ -6,18 +6,16 @@ import enumes.Currency;
 
 import java.time.LocalDate;
 
-public class CardAccount {
-    private long cardNumber;
+public class CardAccount extends Account {
    private int cvv;
    private LocalDate expirationDate;
    private CardType cardType;
-   private double balance;
-   private Currency currency;
    private CardStatus cardStatus;
 
-    public CardAccount(long cardNumber, int cvv, LocalDate expirationDate, CardType cardType, double balance,
+    public CardAccount(long accNumber, int cvv, LocalDate expirationDate, CardType cardType, double balance,
                        Currency currency, CardStatus cardStatus) {
-        this.cardNumber = cardNumber;
+        super(accNumber,currency,balance);
+        this.accNumber = accNumber;
         this.cvv = cvv;
         this.expirationDate = expirationDate;
         this.cardType = cardType;
@@ -27,14 +25,14 @@ public class CardAccount {
     }
 
     public long getCardNumber() {
-        if(cardNumber < 1000000000000000L || cardNumber > 9999999999999999L){
+        if(accNumber < 1000000000000000L || accNumber > 9999999999999999L){
             System.out.println("The number must contain sixteen numbers");
         }
-        return cardNumber;
+        return accNumber;
     }
 
     public void setCardNumber(long cardNumber) {
-        this.cardNumber = cardNumber;
+        this.accNumber = cardNumber;
     }
 
     public int getCvv() {
@@ -91,7 +89,7 @@ public class CardAccount {
     }
 
     public String toString(){
-        return "Card account{" + "Card number = " + cardNumber + ", CVV = " + cvv + ", Date: "
+        return "Card account{" + "Card number = " + accNumber + ", CVV = " + cvv + ", Date: "
                 + expirationDate + ", Card type: " + cardType + ", Balance = " + balance +
                 ", The currency of card: " + currency + ", Card status: " + cardStatus + "}";
     }

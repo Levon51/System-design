@@ -2,38 +2,43 @@ package transaction;
 
 import enumes.CardStatus;
 import exception.InsufficientFundsException;
+import model.Account;
 import model.CardAccount;
-import transaction_interface.CardAccountTransaction;
+import transaction_interface.Transaction;
 
-public class CardTransaction implements CardAccountTransaction {
-    public void deposit(CardAccount card, int amount){
-        if(card.getCardStatus() == CardStatus.BLOCKED){
+public class CardTransaction implements Transaction {
+    public void deposit(Account card, int amount){
+        CardAccount ca = (CardAccount) card;
+        if(ca.getCardStatus() == CardStatus.BLOCKED){
             throw new InsufficientFundsException("Card is blocked.");
         }else if(amount < 0){
             throw new InsufficientFundsException("");
         }
-        card.setBalance(card.getBalance() + amount);
+        ca.setBalance(ca.getBalance() + amount);
     }
-    public void withdraw(CardAccount card, int amount){
-        if(card.getCardStatus() == CardStatus.BLOCKED){
+    public void withdraw(Account card, int amount){
+        CardAccount ca = (CardAccount) card;
+        if(ca.getCardStatus() == CardStatus.BLOCKED){
             throw new InsufficientFundsException("Card is blocked.");
-        }if (card.getBalance() < amount){
+        }if (ca.getBalance() < amount){
             throw new InsufficientFundsException("Not enough money.");
         }else{
-            card.setBalance(card.getBalance() - amount);
+            ca.setBalance(card.getBalance() - amount);
         }
     }
-    public void transfer(CardAccount fromCard, CardAccount toCard, int amount){
-        if (fromCard == null || toCard == null) {
+    public void transfer(Account fromCard, Account toCard, int amount){
+        CardAccount ca = (CardAccount)fromCard;
+        CardAccount ca1 = (CardAccount) toCard;
+        if (ca == null || ca1 == null) {
             throw new InsufficientFundsException("One or both cards not found.");
         }
-        if (toCard.getCardStatus() == CardStatus.BLOCKED || fromCard.getCardStatus() == CardStatus.BLOCKED){
+        if (ca1.getCardStatus() == CardStatus.BLOCKED || ca.getCardStatus() == CardStatus.BLOCKED){
             throw new InsufficientFundsException("Card is blocked.");
-        }if (fromCard.getBalance() < amount) {
+        }if (ca.getBalance() < amount) {
             throw new InsufficientFundsException("Not enough money.");
         }
-        fromCard.setBalance(fromCard.getBalance() - amount);
-        toCard.setBalance(toCard.getBalance() + amount);
+        ca.setBalance(ca.getBalance() - amount);
+        ca1.setBalance(ca1.getBalance() + amount);
         System.out.println("Transfer successful");
     }
     public void block(CardAccount card){

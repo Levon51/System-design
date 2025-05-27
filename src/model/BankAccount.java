@@ -3,17 +3,12 @@ package model;
 import enumes.BankAccountType;
 import enumes.Currency;
 
-public class BankAccount {
-    private long accNumber;
-    private double balance;
-    private Currency currency;
+public class BankAccount extends Account{
     private BankAccountType bankAccountType;
 
     public BankAccount(long accNumber, double balance, Currency currency, BankAccountType bankAccountType) {
-        this.accNumber = accNumber;
-        this.balance = balance;
-        this.currency = currency;
-        this.bankAccountType = bankAccountType;
+        super(accNumber,currency,balance);
+                this.bankAccountType = bankAccountType;
     }
 
     public long getAccNumber() {
