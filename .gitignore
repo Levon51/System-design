@@ -5,7 +5,9 @@ misc.xml
 modules.xml
 .idea/System design.iml
 workspace.xml
-/.idea
+.idea/
 /.workspace.xml
 /.modules.xml
 /.gitignore
+*.class
+*.iml
